@@ -1,10 +1,15 @@
-import React,{ useState,useEffect } from 'react';
+import React,{  useState } from 'react';
 import sideImage from "./Black_and_Yellow_Gradient_Modern_Coffee_Presentation-removebg-preview.png";
-function Home() {
+import About from './About.jsx';
+function Home({ cartCount,setCartCount }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [activeFilter, setActiveFilter] = useState(null);
   const [error, setError] = useState(null);
+  const [showMessage,setShowMessage]=useState(null);
+  const [idCoffeeTracked,setIdCoffeeTracked] =useState(null);
+
+  
   const fetchCoffeeData = async (coffeeType) => {
     setLoading(true);
     setError(null);
@@ -41,8 +46,14 @@ function Home() {
     setData([]);
   };
 
-  const excludedTitles = ["Co-Fee", "Olla", "Latte Choco", "CofCof", "Latte Choco Noisette"];
+  const excludedTitles = ["Co-Fee", "Olla", "Latte Choco", "CofCof", "Latte Choco Noisette"]; 
 
+  const handAddToCart= (coffeeId)=>{
+    setCartCount(cartCount + 1);
+    setShowMessage(idCoffeeTracked);
+    setIdCoffeeTracked(coffeeId);
+    console.log("The id Tracked: ", coffeeId)
+  }
   return (
     <div className="home" id='home'>
       {/* Hero Section */}
@@ -62,6 +73,8 @@ function Home() {
         </div>
       </section>
 
+      {/*About section*/}
+      <About />
       {/* Features Section */}
       <section className="features">
         <div className="container">
@@ -155,10 +168,25 @@ function Home() {
                 <div className="coffee-info">
                   <h3 className="coffee-name">{coffee.title}</h3>
                   <p className="coffee-description">{coffee.description}</p>
+                  <p className='coffee-ingredients'>
+                    <h3>Ingredients</h3>
+                    <ul>
+                      {coffee.ingredients && Array.isArray(coffee.ingredients) ? (
+                        coffee.ingredients.map((ingredient, index) => (
+                          <li className='ingredient-item' key={index}>{ingredient}</li>
+                        ))
+                      ) : (
+                        <li className='ingredient-item'>No ingredients available</li>
+                      )}
+                    </ul>
+                  </p>
                   <div className="coffee-footer">
-                    <span className="coffee-price">{coffee.price}</span>
-                    <button className="btn btn-small">Add to Cart</button>
+                    <span className="coffee-price">15 $</span>
+                    <button className="btn btn-small" onClick={() => handAddToCart(coffee.id)}>Add to Cart</button>
                   </div>
+                  {idCoffeeTracked === coffee.id &&
+                        (<div className='success-message fade-in-elemnt'>✅ Added to Cart successfully</div>)
+                    }
                 </div>
               </div>
             ))}

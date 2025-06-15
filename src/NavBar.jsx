@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import WebsiteLogo from "./Coffee Logo.png"
 
-function NavBar() {
+function NavBar({cartCount}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -42,7 +42,7 @@ function NavBar() {
             <a href="#home" className="nav-link">Home</a>
           </li>
           <li className="nav-item">
-            <a href="#menu" className="nav-link">Menu</a>
+            <a href="#featured" className="nav-link">Menu</a>
           </li>
           <li className="nav-item">
             <a href="#about" className="nav-link">About</a>
@@ -53,7 +53,8 @@ function NavBar() {
           <li className="nav-item">
             <a href="#cart" className="nav-link cart">
               <span className="cart-icon">🛒</span>
-              <span className="cart-count">0</span>
+              <span className="cart-count">{cartCount}
+              </span>
             </a>
           </li>
         </ul>
