@@ -1,9 +1,12 @@
-
+import Home from "./Home.jsx";
+import "./App.css";
+import NavBar from "./NavBar.jsx";
 function App() {
 
   return (
     <>
-      <h1>Hello world!</h1>
+      <NavBar />
+      <Home />
     </>
   )
 }
