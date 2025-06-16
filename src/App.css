@@ -524,7 +524,10 @@ body {
 /* Call to Action Section */
 .cta {
   padding: 80px 0;
-  background: linear-gradient(135deg, #2C1810, #8B4513);
+  background-image: url("src/cta.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   color: white;
 }
 
