@@ -52,7 +52,6 @@ function Home({ cartCount,setCartCount }) {
     setCartCount(cartCount + 1);
     setShowMessage(idCoffeeTracked);
     setIdCoffeeTracked(coffeeId);
-    console.log("The id Tracked: ", coffeeId)
   }
   return (
     <div className="home" id='home'>
@@ -118,7 +117,7 @@ function Home({ cartCount,setCartCount }) {
                 activeFilter === 'iced' 
                   ? 'bg-blue-500 text-white shadow-lg' 
                   : 'bg-gray-200 text-gray-700 hover:bg-blue-100'
-              }`} onClick={handleShowIceCoffee}>🧊 Ice Coffee</button>
+              }`} onClick={handleShowIceCoffee}>🧊 Iced Coffee</button>
               {activeFilter && (
               <button 
                 onClick={clearFilter}
@@ -131,7 +130,7 @@ function Home({ cartCount,setCartCount }) {
            {/* Loading State */}
           {loading && (
             <div className="text-center py-12">
-              <div className="text-4xl animate-spin">☕</div>
+              <div className="text-4xl loading-coffee">☕</div>
               <p className="mt-4 text-gray-600">Loading delicious coffee...</p>
             </div>
           )}
@@ -139,7 +138,7 @@ function Home({ cartCount,setCartCount }) {
           {error && (
             <div className="text-center py-12">
               <div className="text-4xl">❌</div>
-              <p className="mt-4 text-red-600">Error loading coffee data: {error}</p>
+              <p className="mt-4 error-message">Error loading coffee data: {error}</p>
             </div>
           )}
 

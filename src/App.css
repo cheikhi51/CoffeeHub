@@ -108,7 +108,12 @@ body {
   text-decoration: none;
 }
 
+.hero-image{
+  overflow: hidden;
+}
+
 .side-image {
+  overflow: hidden;
   font-size: 28px;
   animation: steam 1s ease-in-out infinite alternate;
 }
@@ -117,7 +122,18 @@ body {
   0% { transform: translateY(0px); }
   100% { transform: translateY(-6px); }
 }
+@keyframes Rotate {
+  0%{
+    transform: rotate(360deg);
+  }
+}
 
+.loading-coffee{
+  animation: Rotate 1s ease-in-out infinite ;
+}
+.error-message{
+  color: rgb(209, 49, 49);
+}
 .logo-text {
   color: #F5DEB3;
 }
@@ -352,9 +368,10 @@ body {
 .section-title {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   color: #2C1810;
   position: relative;
+  margin-top: 70px;
 }
 
 .section-title::after {
@@ -658,15 +675,6 @@ body {
   }
   
 }
-
-.story-buttons{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
 .hero-subtitle-about{
   font-family:  Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   text-align: center;
@@ -685,9 +693,12 @@ body {
   margin: 20px 0;
   font-size: large;
 }
+.stats-container{
+  margin:10px ;
+}
 .stats-grid{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   text-align: center;
   gap: 7px;
@@ -701,35 +712,54 @@ body {
   font-size: 200%;
   font-weight: 600;
   color: #8B4513;
+  font-family:  monospace;
 }
 .stat-label{
   font-size: large;
   font-weight: 800;
   color: #6c4403;
 }
-
-.stat-card{
+.stat-card {
+  position: relative;
   background-color: #fdf8ef;
   width: 300px;
+  border: 1px solid #e5e0d7;
   height: 200px;
   border-radius: 20px;
-  border: 1px solid #d18100;
   cursor: pointer;
   margin-bottom: 30px;
   transition: all 0.4s ease;
-}
-.stat-card:hover{
-  transform: translateY(-4px);
-  filter: drop-shadow(0 0 0.20rem #d18100);
+  overflow: hidden; 
 }
 
-.about-hero-content{
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0; /* or bottom: 0; if you want it at the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #2C1810, #8B4513, #D2691E);
+  transition: width 0.4s ease;
+}
+
+.stat-card:hover::after {
+  width: 50%; 
+}
+.about-images{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
+  overflow-y: hidden;
 }
 .about-image{
-  width: 900px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
 }

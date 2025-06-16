@@ -1,5 +1,8 @@
 import React from 'react';
-import aboutImage from "./About CoffeeHub_prev_ui.png";
+import aboutImage1 from "./about1_prev_ui.png";
+import aboutImage2 from "./about2_prev_ui.png";
+import aboutImage3 from "./about3_prev_ui.png";
+import CountUp from 'react-countup';
 function About() {
   return (
     <div className="about-section" id="about">
@@ -7,11 +10,13 @@ function About() {
       <section className="about-hero">
         <div className="container">
           <h1 className="section-title">About CoffeeHub</h1>
-          <div className='about-hero-content'>
           <p className="hero-subtitle-about">
             Your trusted partner in delivering exceptional coffee experiences, one cup at a time
           </p>
-          <img className="about-image" src={aboutImage} alt='The about side Image'/>
+          <div className='about-images'>
+          <img className="about-image" src={aboutImage2} alt='The about side Image'/>
+          <img className="about-image" src={aboutImage1} alt='The about side Image'/>
+          <img className="about-image" src={aboutImage3} alt='The about side Image'/>
           </div>
         </div>
       </section>
@@ -28,16 +33,11 @@ function About() {
               <p className="story-text">
                 We believe that great coffee should be accessible to everyone, whether you're starting your morning routine or taking an afternoon break. Every cup tells a story, and we're here to help you discover yours.
               </p>
-              <div className="story-buttons">
-                <button className="btn btn-primary">Explore Our Story</button>
-                <button className="btn btn-secondary">Meet Our Team</button>
-              </div>
             </div>
             <div className="story-image">
               <div className="story-card">
-                <div className="story-icon">☕</div>
-                <h3>Our Mission</h3>
-                <p>To make exceptional coffee accessible through innovative technology and passionate service. We bring joy and energy to your daily routine, one perfect cup at a time.</p>
+                <h2 className='section-title'>Our Mission</h2>
+                <p className='story-text'>To make exceptional coffee accessible through innovative technology and passionate service. We bring joy and energy to your daily routine, one perfect cup at a time.</p>
               </div>
             </div>
           </div>
@@ -46,27 +46,27 @@ function About() {
 
       {/* Stats Section */}
       <section className="stats-section">
-        <div className="container">
+        <div className="stats-container">
           <h2 className="section-title">Our Impact</h2>
           <div className="stats-grid">
             <div className="stat-card">
               <div className="stat-icon">☕</div>
-              <div className="stat-number">50K+</div>
+              <div className="stat-number"><CountUp start={0} end={50} duration={2} separator="," />K+</div>
               <div className="stat-label">Cups Served</div>
             </div>
             <div className="stat-card">
               <div className="stat-icon">👥</div>
-              <div className="stat-number">5K+</div>
+              <div className="stat-number"><CountUp start={0} end={5} duration={2} separator="," />K+</div>
               <div className="stat-label">Happy Customers</div>
             </div>
             <div className="stat-card">
               <div className="stat-icon">🚚</div>
-              <div className="stat-number">25K+</div>
+              <div className="stat-number"><CountUp start={0} end={25} duration={2} separator="," />K+</div>
               <div className="stat-label">Orders Delivered</div>
             </div>
             <div className="stat-card">
               <div className="stat-icon">⭐</div>
-              <div className="stat-number">4.9</div>
+              <div className="stat-number"><CountUp start={0} end={4.9} duration={2} separator="," /></div>
               <div className="stat-label">Average Rating</div>
             </div>
           </div>
