@@ -1,12 +1,15 @@
 function Contact(){
 
     return(
-        <div className="contatct-container" id="contact">
+        <div className="contact-section" id="contact">
             <h1 className="section-title">Contact Us</h1>
-            
-            <input/>
-            <input/>
-            <input/>
+            <form className="contact-form">
+                <h2 className="form-title">Get In Touch</h2>
+                <input className="contact-input" name="username" placeholder="Username..."/>
+                <input className="contact-input" name="email" placeholder="Email..."/>
+                <textarea className="contact-input" name="message" placeholder="Message..."/>
+                <button className="send-btn">Send</button>
+            </form>
         </div>
     )
 
