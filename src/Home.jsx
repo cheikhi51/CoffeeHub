@@ -210,7 +210,7 @@ function Home({ cartCount,setCartCount }) {
                     <button className="btn btn-small" onClick={() => handAddToCart(coffee.id)}>Add to Cart</button>
                   </div>
                   {idCoffeeTracked === coffee.id &&
-                        (<div className='success-message fade-in-elemnt'>✅ Added to Cart successfully</div>)
+                        (<div className='success-message fade-in-element'>✅ Added to Cart successfully</div>)
                     }
                 </div>
               </div>
