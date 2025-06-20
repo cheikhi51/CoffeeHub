@@ -1,6 +1,7 @@
 import React,{  useState, useEffect } from 'react';
 import sideImage from "./Black_and_Yellow_Gradient_Modern_Coffee_Presentation-removebg-preview.png";
 import About from './About.jsx';
+import successIcon from "./roundedSuccess.svg";
 function Home({ cartCount,setCartCount }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -193,7 +194,7 @@ function Home({ cartCount,setCartCount }) {
                   <h3 className="coffee-name">{coffee.title}</h3>
                   <p className="coffee-description">{coffee.description}</p>
                   <p className='coffee-ingredients'>
-                    <h3>Ingredients</h3>
+                    <p className='title'>Ingredients</p>
                     <ul>
                       {coffee.ingredients && Array.isArray(coffee.ingredients) ? (
                         coffee.ingredients.map((ingredient, index) => (
@@ -209,7 +210,10 @@ function Home({ cartCount,setCartCount }) {
                     <button className="btn btn-small" onClick={() => handAddToCart(coffee.id)}>Add to Cart</button>
                   </div>
                   {idCoffeeTracked === coffee.id &&
-                        (<div className='success-message fade-in-element'>✅ Added to Cart successfully</div>)
+                        (<div className='success-message fade-in-element'>
+                          <img src={successIcon} alt="Success" style={{width: '20px', height: '20px', marginRight: '8px'}} />
+                          Added to Cart successfully</div>
+                          )
                     }
                 </div>
               </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-
+import successIcon from "./roundedSuccess.svg";
+import errorIcon from "./roundedError.svg";
 function Contact(){
     const [formData, setFormData] = useState({
         name: "",
@@ -54,10 +55,16 @@ function Contact(){
                 <button className="send-btn" type="submit">Send</button>
             </form>
             {sendMessage &&
-                <div className="success-form-message fade-in-element"> Data sent successfully </div>
+                <div className="success-form-message fade-in-element">
+                    <img src={successIcon} alt="Success" style={{width: '20px', height: '20px', marginRight: '8px'}} />
+                    Data sent successfully 
+                </div>
             }
             {errorMessage &&
-                <div className="error-form-message fade-in-element"> Please fill in the form</div>
+                <div className="error-form-message fade-in-element"> 
+                  <img src={errorIcon} alt="Success" style={{width: '20px', height: '20px', marginRight: '8px'}} />
+                  Please fill in the form
+                </div>
             }
         </div>
     )
