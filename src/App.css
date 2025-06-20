@@ -840,3 +840,29 @@ body {
  background: linear-gradient(135deg, #A0522D, #CD853F);
  text-align: center;
 }
+.loading-page-icon {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(251, 242, 233);
+  z-index: 9999;
+  font-size: 4rem;
+}
+@keyframes loading {
+  0%{
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+.page-element{
+    animation: loading 1s ease-in-out infinite alternate;
+}
