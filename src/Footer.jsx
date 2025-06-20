@@ -2,7 +2,7 @@
 function Footer(){
     return(
         <div className="footer-section">
-            <p>©CoffeeHub</p>
+            <p>©CoffeeHub 2025</p>
         </div>
     )
 }

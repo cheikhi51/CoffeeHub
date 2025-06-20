@@ -8,7 +8,7 @@ function Home({ cartCount,setCartCount }) {
   const [error, setError] = useState(null);
   const [showMessage,setShowMessage]=useState(null);
   const [idCoffeeTracked,setIdCoffeeTracked] =useState(null);
-  const [upButton, setUpButton] = useState(true);
+  const [upButton, setUpButton] = useState(false);
 
   
   const fetchCoffeeData = async (coffeeType) => {
@@ -56,15 +56,15 @@ function Home({ cartCount,setCartCount }) {
     setIdCoffeeTracked(coffeeId);
   }
 
-  /*
+  
   useEffect(() => {
     const handleUpButton = () => {
       const homeHeight = document.querySelector('.hero')?.offsetHeight || 0;
-
+      console.log("home height is : ", homeHeight);
       if (window.scrollY > homeHeight) {
         setUpButton(true);
       } else {
-        setUpButton(true);
+        setUpButton(false);
       }
     };
 
@@ -78,7 +78,7 @@ function Home({ cartCount,setCartCount }) {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };*/
+  };
   return (
     <div className="home" id='home'>
       {/* Hero Section */}
@@ -230,12 +230,15 @@ function Home({ cartCount,setCartCount }) {
         </div>
       </section>
       {/* Scroll-To-Top Button */}
+      {upButton && (
         <button
           className="up-button slide-in-element"
           aria-label="Scroll to top"
+          onClick={scrollToTop}
         >
-          <i className="fa-solid fa-circle-chevron-up fa-lg"></i>
+          <i className="fa-solid fa-circle-chevron-up fa-2xl"></i>
         </button>
+      )}
     </div>
   );
 }

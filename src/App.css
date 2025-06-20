@@ -490,7 +490,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(146, 64, 14, 0.95)
 }
 
 .coffee-price {
@@ -838,8 +837,11 @@ body {
 .footer-section{
   margin-top: 50px;
   padding: 40px;
- background: linear-gradient(135deg, #A0522D, #CD853F);
+ background: linear-gradient(135deg, #6a3217,#9e512a, #CD853F);
  text-align: center;
+ color: whitesmoke;
+ font-weight: bold;
+ font-size: large;
 }
 .loading-page-icon {
   position: fixed;
@@ -871,14 +873,19 @@ body {
   position: fixed;
   bottom: 10px;
   right: 10px;
-  font-size: x-large;
   z-index: 1000;
   background-color: #90541f;
   color: #52230c;
   border-radius: 50px;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border: 1px solid #90541f;
+  transition: all 0.4s ease;
+}
+.up-button:hover{
+  filter: drop-shadow(0 0 0.10rem #e89261);
+  transform: translateY(-3px);
+  background: linear-gradient(180deg,rgb(103, 56, 15) 0%, rgba(140, 96, 62, 1) 50%, rgba(224, 160, 49, 1) 100%);
 }
 @keyframes slide-in {
   0%{
