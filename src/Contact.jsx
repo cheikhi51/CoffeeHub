@@ -15,7 +15,6 @@ function Contact(){
     
     const handFormDataSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
         if(formData.name === "" || formData.email === "" || formData.message === ""){
             setErrorMessage(true);
         } else {

@@ -60,7 +60,6 @@ function Home({ cartCount,setCartCount }) {
   useEffect(() => {
     const handleUpButton = () => {
       const homeHeight = document.querySelector('.hero')?.offsetHeight || 0;
-      console.log("home height is : ", homeHeight);
       if (window.scrollY > homeHeight) {
         setUpButton(true);
       } else {
