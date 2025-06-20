@@ -866,3 +866,7 @@ body {
 .page-element{
     animation: loading 1s ease-in-out infinite alternate;
 }
+.up-button{
+  position: fixed;
+  z-index: 1000;
+}

@@ -1,4 +1,4 @@
-import React,{  useState } from 'react';
+import React,{  useState, useEffect } from 'react';
 import sideImage from "./Black_and_Yellow_Gradient_Modern_Coffee_Presentation-removebg-preview.png";
 import About from './About.jsx';
 function Home({ cartCount,setCartCount }) {
@@ -8,6 +8,7 @@ function Home({ cartCount,setCartCount }) {
   const [error, setError] = useState(null);
   const [showMessage,setShowMessage]=useState(null);
   const [idCoffeeTracked,setIdCoffeeTracked] =useState(null);
+  const [upButton, setUpButton] = useState(false);
 
   
   const fetchCoffeeData = async (coffeeType) => {
@@ -46,13 +47,38 @@ function Home({ cartCount,setCartCount }) {
     setData([]);
   };
 
-  const excludedTitles = ["Co-Fee", "Olla", "Latte Choco", "CofCof", "Latte Choco Noisette"]; 
+  const excludedTitles = ["Co-Fee", "Olla", "Latte Choco", "CofCof", "Latte Choco Noisette"];
+
 
   const handAddToCart= (coffeeId)=>{
     setCartCount(cartCount + 1);
     setShowMessage(idCoffeeTracked);
     setIdCoffeeTracked(coffeeId);
   }
+
+
+  useEffect(() => {
+    const handleUpButton = () => {
+      const homeHeight = document.querySelector('.hero')?.offsetHeight || 0;
+
+      if (window.scrollY > homeHeight) {
+        setUpButton(true);
+      } else {
+        setUpButton(true);
+      }
+    };
+
+    handleUpButton();
+    window.addEventListener('scroll', handleUpButton);
+
+    return () => {
+      window.removeEventListener('scroll', handleUpButton);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   return (
     <div className="home" id='home'>
       {/* Hero Section */}
@@ -203,6 +229,16 @@ function Home({ cartCount,setCartCount }) {
           </div>
         </div>
       </section>
+      {/* Scroll-To-Top Button */}
+      {upButton && (
+        <button
+          className="up-button"
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+        >
+          <i className="fa-solid fa-circle-chevron-up fa-lg"></i>
+        </button>
+      )}
     </div>
   );
 }
