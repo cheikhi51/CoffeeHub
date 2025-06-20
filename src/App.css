@@ -490,6 +490,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: rgb(146, 64, 14, 0.95)
 }
 
 .coffee-price {
@@ -868,5 +869,27 @@ body {
 }
 .up-button{
   position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: x-large;
   z-index: 1000;
+  background-color: #90541f;
+  color: #52230c;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #90541f;
+}
+@keyframes slide-in {
+  0%{
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.slide-in-element{
+  animation: slide-in 0.4s ease-in-out;
 }
