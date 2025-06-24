@@ -66,17 +66,43 @@ body {
   color: white;
   transform: translateY(-2px);
 }
-
 .btn-small {
   padding: 8px 16px;
   font-size: 14px;
-  transition: all 0.3s ease;
-  max-width: 200px;
+  transition: all 0.4s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: #d8b891;
+  color: white;
+  border-radius: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: fit-content;
+  position: relative;
 }
-.btn-small:hover{
+
+.btn-small:hover {
   transform: translateY(-3px);
-  filter: drop-shadow(0 0 0.40rem rgb(117, 63, 2));
+  background-color: #d8b891;
+  transform: scale(1.05);
 }
+
+.cart-text {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  transform: translateX(-10px);
+}
+
+.cart-text.visible {
+  max-width: 120px;
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .btn-large {
   padding: 16px 32px;
   font-size: 18px;
@@ -304,10 +330,10 @@ body {
   text-align: center;
   background-color: transparent;
   color: #F5DEB3;
-  border-color: #F5DEB3;
+  border:1px solid #F5DEB3;
 }
 .menuBtn:hover{
-  background: linear-gradient(135deg, #2C1810, #8B4513, #D2691E);
+  background: linear-gradient(90deg, #2C1810, #8B4513, #D2691E);
   transform: translateY(-3px);
   filter: drop-shadow(0 0 0.30rem #F5DEB3);
 }
@@ -324,10 +350,15 @@ body {
 
 .filter-buttons{
   margin-bottom: 40px;
+  gap: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all  0.3s ease;
 }
 .filter-button{
   padding: 12px 24px;
-  border-radius: 40px;
+  border-radius: 50px;
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
@@ -537,6 +568,32 @@ body {
   opacity: 0;
   animation: fade-in 0.7s forwards;
 }
+
+.fade-up-element{
+    opacity: 0;
+    transform: translateY(80px);
+    transition: all 0.7s ease-out;
+}
+.fade-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+.pop-up-element{
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 1s ease-in-out;
+}
+.pop-up{
+  opacity: 1;
+  transform: scale(1);
+}
+.visible-element{
+  opacity: 0;
+  transition: all 0.9s ease-in-out;
+}
+.visible{
+  opacity: 1;
+}
 /* Call to Action Section */
 .cta {
   padding: 80px 0;
@@ -666,6 +723,17 @@ body {
   .features, .featured-coffees, .cta {
     padding: 60px 0;
   }
+  .filter-buttons{
+    gap: 40px;
+  }
+  .filter-button{
+    width: 70px;
+    height: 70px;
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
 }
 
@@ -690,6 +758,9 @@ body {
   }
   
   .btn {
+    width: 100%;
+  }
+  .menuBtn{
     width: 100%;
   }
   
@@ -729,8 +800,12 @@ body {
 .stat-number{
   font-size: 200%;
   font-weight: 600;
-  color: #8B4513;
   font-family:  monospace;
+  background: #422308;
+  background: linear-gradient(90deg,rgba(66, 35, 8, 1) 0%, rgba(140, 96, 62, 1) 50%, rgba(224, 160, 49, 1) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .stat-label{
   font-size: large;
@@ -886,6 +961,46 @@ body {
  color: whitesmoke;
  font-weight: bold;
  font-size: large;
+ display: flex;
+ justify-content: space-evenly;
+  align-items: center;
+}
+.quick-links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.quick-links a{
+  position: relative;
+  color: white;
+  font-weight: medium;
+  text-decoration: none;
+  overflow: hidden;
+  padding: 3px;
+}
+.quick-links a::after{
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 50%;
+  border-radius: 2px;
+  background: linear-gradient(90deg,#ffc49b 0%, #dbc0ad 100%);
+  transform: translateX(-50%);
+  transition: all 0.5s ease;
+}
+.quick-links a:hover::after{
+  width: 100%;
+}
+.quick-links a:hover{
+ background: #422308;
+  background: linear-gradient(90deg,#ffc49b 0%, #dbc0ad 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .loading-page-icon {
   position: fixed;
@@ -943,4 +1058,8 @@ body {
 }
 .slide-in-element{
   animation: slide-in 0.4s ease-in-out;
+}
+.cartBtn{
+  color: #99571d;
+  transition: all 0.3 ease;
 }

@@ -46,8 +46,8 @@ function Contact(){
 
     return(
         <div className="contact-section" id="contact">
-            <h1 className="section-title">Contact Us</h1>
-            <form className="contact-form" onSubmit={handFormDataSubmit}>
+            <h1 className="section-title fade-up-element">Contact Us</h1>
+            <form className="contact-form fade-up-element" onSubmit={handFormDataSubmit}>
                 <h2 className="form-title">Get In Touch</h2>
                 <input className="contact-input" name="name" type="text" value={formData.name} placeholder="Username..." onChange={handFormDataChange}/>
                 <input className="contact-input" name="email" type="email" value={formData.email} placeholder="Email..." onChange={handFormDataChange}/>

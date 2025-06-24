@@ -9,10 +9,10 @@ function App() {
   const [cartCount, setCartCount] =useState(0);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    // Simulate app loading time
+    
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // Loading for 3 seconds
+    }, 3000); 
 
     return () => clearTimeout(timer);
   }, []);
@@ -29,8 +29,6 @@ function App() {
         <Home cartCount={cartCount} setCartCount={setCartCount}/>
         <Contact />
         <Footer />
-      
-      
     </>
   )
 }
