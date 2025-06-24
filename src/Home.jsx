@@ -1,7 +1,8 @@
-import React,{  useState, useEffect } from 'react';
+import {  useState, useEffect } from 'react';
 import sideImage from "./Black_and_Yellow_Gradient_Modern_Coffee_Presentation-removebg-preview.png";
 import About from './About.jsx';
 import successIcon from "./roundedSuccess.svg";
+import OrderImage from "./Coffee Logo.png";
 function Home({ cartCount,setCartCount }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -11,6 +12,20 @@ function Home({ cartCount,setCartCount }) {
   const [idCoffeeTracked,setIdCoffeeTracked] =useState(null);
   const [upButton, setUpButton] = useState(false);
   const [hoveredCoffeeId, setHoveredCoffeeId] = useState(null);
+  const [showOrder,setShowOrder] = useState(false);
+  const [coffeeOrder, setCoffeeOrder] = useState(null);
+
+  const [prices, setPrices] = useState({});
+
+  useEffect(() => {
+    if (data.length > 0) {
+      const generatedPrices = {};
+      data.forEach(coffee => {
+        generatedPrices[coffee.id] = Math.floor(Math.random() * (20 - 15 + 1)) + 15;
+      });
+      setPrices(generatedPrices);
+    }
+  }, [data]);
   
   const fetchCoffeeData = async (coffeeType) => {
     setLoading(true);
@@ -109,6 +124,15 @@ const handleOnMouseLeaveCart = () => {
     };
   }, []);
 
+  const handleCoffeeOrderShow = ()=>{
+    setShowOrder(true);
+
+  }
+  const handleCancel = ()=>{
+    setShowOrder(false);
+  }
+
+
   return (
     <div className="home" id='home'>
       {/* Hero Section */}
@@ -119,7 +143,7 @@ const handleOnMouseLeaveCart = () => {
             Discover the perfect cup of coffee, delivered fresh to your door
           </p>
           <div className="hero-buttons fade-up-element">
-            <button className="btn btn-primary">Order Now</button>
+            <button className="btn btn-primary" onClick={handleCoffeeOrderShow}>Order Now</button>
             <a href={"#featured"} className="menuBtn">View Menu</a>
           </div>
         </div>
@@ -236,7 +260,7 @@ const handleOnMouseLeaveCart = () => {
                     </ul>
                   </p>
                   <div className="coffee-footer">
-                    <span className="coffee-price">15 $</span>
+                    <span className="coffee-price">{prices[coffee.id]}$</span>
                         <button
                           className="btn btn-small"
                           onClick={() => handleAddToCart(coffee.id)}
@@ -282,7 +306,31 @@ const handleOnMouseLeaveCart = () => {
           <i className="fa-solid fa-circle-chevron-up fa-2xl"></i>
         </button>
       )}
+       {/*Coffee order*/}
+       {showOrder &&
+       <div className='order-card fade-in-element'>
+        <img className='order-img' src={OrderImage} alt='order image'/>
+        <button className='cancel-btn' onClick={handleCancel}></button>
+        <form className='order-form'>
+          <h2 className='order-title'> Order Now </h2>
+          <input className='order-input' name="fullname" type="text"  placeholder='Full name' required/>
+          <input className='order-input' name="phone" type='number' placeholder='phone number' required/>
+          <input className='order-input' name='email' type='email' placeholder='Email' required/>
+          <select className="order-input" required>
+                    <option value="">Select your coffee</option>
+                    <option value="espresso">Espresso</option>
+                    <option value="latte">Latte</option>
+                    <option value="cappuccino">Cappuccino</option>
+                    <option value="americano">Americano</option>
+                    <option value="mocha">Mocha</option>
+          </select>
+          <input class="order-input" type="text" placeholder="Any special requests?" />
+          <button className='send-order' type='submit'>Place Order</button>
+        </form>
+       </div>
+       }
     </div>
+   
   );
 }
 

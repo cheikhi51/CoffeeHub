@@ -42,10 +42,10 @@ function NavBar({cartCount}) {
             <a href="#home" className="nav-link">Home</a>
           </li>
           <li className="nav-item">
-            <a href="#featured" className="nav-link">Menu</a>
+            <a href="#about" className="nav-link">About</a>
           </li>
           <li className="nav-item">
-            <a href="#about" className="nav-link">About</a>
+            <a href="#featured" className="nav-link">Menu</a>
           </li>
           <li className="nav-item">
             <a href="#contact" className="nav-link">Contact</a>

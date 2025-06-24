@@ -55,15 +55,15 @@ function Contact(){
                 <button className="send-btn" type="submit">Send</button>
             </form>
             {sendMessage &&
-                <div className="success-form-message fade-in-element">
+                <div className="success-form-container fade-down-element">
                     <img src={successIcon} alt="Success" style={{width: '20px', height: '20px', marginRight: '8px'}} />
-                    Data sent successfully 
+                    <p className="success-form-message">Data sent successfully </p>
                 </div>
             }
             {errorMessage &&
-                <div className="error-form-message fade-in-element"> 
+                <div className="error-form-container fade-down-element"> 
                   <img src={errorIcon} alt="Success" style={{width: '20px', height: '20px', marginRight: '8px'}} />
-                  Please fill in the form
+                  <p className="error-form-message">Please fill in the form</p>
                 </div>
             }
         </div>
