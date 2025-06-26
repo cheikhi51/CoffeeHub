@@ -3,6 +3,7 @@ import sideImage from "./Black_and_Yellow_Gradient_Modern_Coffee_Presentation-re
 import About from './About.jsx';
 import successIcon from "./roundedSuccess.svg";
 import OrderImage from "./Coffee Logo.png";
+
 function Home({ cartCount,setCartCount }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -13,7 +14,9 @@ function Home({ cartCount,setCartCount }) {
   const [upButton, setUpButton] = useState(false);
   const [hoveredCoffeeId, setHoveredCoffeeId] = useState(null);
   const [showOrder,setShowOrder] = useState(false);
-  const [coffeeOrder, setCoffeeOrder] = useState(null);
+  const [coffeeOrder, setCoffeeOrder] = useState({fullname:"",phone:"",email:"",coffeeType:"",specialRequests:""});
+  const [successMessage, setSuccessMessage] = useState(false);
+  
 
   const [prices, setPrices] = useState({});
 
@@ -130,8 +133,25 @@ const handleOnMouseLeaveCart = () => {
   }
   const handleCancel = ()=>{
     setShowOrder(false);
+    setCoffeeOrder({fullname:"",phone:"",email:"",coffeeType:"",specialRequests:""});
   }
 
+  const handleCoffeeChange = (e)=>{
+    setCoffeeOrder({...coffeeOrder,[e.target.name]:e.target.value});
+  }
+  const handleCoffeeOrderSubmit = (e)=>{
+    e.preventDefault();
+    if(coffeeOrder.fullname !== "" || coffeeOrder.phone !== "" || coffeeOrder.email !== "" || coffeeOrder.coffeeType !== "" || coffeeOrder.specialRequests !== "" ){
+      setSuccessMessage(true);
+      console.log("the order data : ", coffeeOrder)
+    }
+  }
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setSuccessMessage(false);
+    },3000)
+  },[successMessage]);
 
   return (
     <div className="home" id='home'>
@@ -311,12 +331,12 @@ const handleOnMouseLeaveCart = () => {
        <div className='order-card fade-in-element'>
         <img className='order-img' src={OrderImage} alt='order image'/>
         <button className='cancel-btn' onClick={handleCancel}></button>
-        <form className='order-form'>
+        <form className='order-form' onSubmit={handleCoffeeOrderSubmit}>
           <h2 className='order-title'> Order Now </h2>
-          <input className='order-input' name="fullname" type="text"  placeholder='Full name' required/>
-          <input className='order-input' name="phone" type='number' placeholder='phone number' required/>
-          <input className='order-input' name='email' type='email' placeholder='Email' required/>
-          <select className="order-input" required>
+          <input className='order-input' name="fullname" type="text"  placeholder='Full name' value={coffeeOrder.fullname} onChange={handleCoffeeChange} required/>
+          <input className='order-input' name="phone" type='number' placeholder='phone number' value={coffeeOrder.phone} onChange={handleCoffeeChange} required/>
+          <input className='order-input' name='email' type='email' placeholder='Email' value={coffeeOrder.email} onChange={handleCoffeeChange} required/>
+          <select className="order-input" name='coffeeType' value={coffeeOrder.coffeeType} onChange={handleCoffeeChange} required>
                     <option value="">Select your coffee</option>
                     <option value="espresso">Espresso</option>
                     <option value="latte">Latte</option>
@@ -324,11 +344,18 @@ const handleOnMouseLeaveCart = () => {
                     <option value="americano">Americano</option>
                     <option value="mocha">Mocha</option>
           </select>
-          <input class="order-input" type="text" placeholder="Any special requests?" />
+          <input className="order-input" name='specialRequests' value={coffeeOrder.specialRequests} onChange={handleCoffeeChange} type="text" placeholder="Any special requests?" required/>
           <button className='send-order' type='submit'>Place Order</button>
         </form>
        </div>
        }
+       {successMessage &&
+              <div className="success-order-container pop-in-element">
+                <img src={successIcon} alt="Success" style={{width: '20px', height: '20px', marginRight: '8px'}} />
+                <p className="success-order-message">Order Seved successfully </p>
+              </div>
+         }
+         
     </div>
    
   );
