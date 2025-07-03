@@ -843,37 +843,17 @@ body {
 }
 .stat-card {
   position: relative;
-  background-color: #fdf8ef;
   width: 300px;
-  border: 1px solid #e5e0d7;
   height: 200px;
-  border-radius: 20px;
   cursor: pointer;
   margin-bottom: 30px;
   transition: all 0.4s ease;
   overflow: hidden; 
 }
-
-.stat-card:hover {
-  transform: translateY(-4px);
+.side-line{
+  height: 14vh;
 }
 
-.stat-card::after {
-  content: '';
-  position: absolute;
-  top: 0; /* or bottom: 0; if you want it at the bottom */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  border-radius: 2px;
-  background: linear-gradient(135deg, #2C1810, #8B4513, #D2691E);
-  transition: width 0.4s ease;
-}
-
-.stat-card:hover::after {
-  width: 50%; 
-}
 .about-images{
   display: flex;
   justify-content: space-evenly;
