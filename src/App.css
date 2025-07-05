@@ -282,11 +282,24 @@ body {
   align-items: end;
 }
 
+
 .hero-title {
   font-size: 3.5rem;
   font-weight: bold;
-  margin-bottom: 10px;
-  line-height: 1.2;
+  background: linear-gradient(to right, rgb(246, 248, 130) 0%, rgb(174, 116, 21) 100%);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family:  monospace , sans-serif;
+  color: transparent;
+  animation: heroAnimation 3s linear forwards;
+}
+
+@keyframes heroAnimation {
+  to {
+    background-size: 100% 100%;
+  }
 }
 
 .hero-subtitle {
@@ -1263,4 +1276,109 @@ body {
 }
 .pop-in-element{
   animation: popIn 0.8s ease-in-out;
+}
+/*Sldier seciton*/
+.slider-section {
+    padding: 40px 0;
+    overflow: hidden;
+}
+
+.section-title {
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgb(22, 20, 20) 15%,
+    rgb(27, 25, 25) 85%,
+    transparent 100%
+);
+}
+.slider-box {
+    display: flex;
+    gap: 30px;
+    width: fit-content;
+    animation: infiniteSlider 20s linear infinite;
+    padding: 40px 0;
+}
+
+.coffee-brand {
+    border-radius: 15px;
+    background: linear-gradient(135deg, #683e11 0%, #965e0f 50%, #dc6434 100%);
+    min-width: 300px;
+    min-height: 350px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    flex-shrink: 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    color: white;
+}
+
+.coffee-brand:hover {
+    filter: drop-shadow(0 0 0.43rem rgb(236, 153, 109));
+}
+
+.brand-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;           
+    object-position: center;     
+    border-radius: 15px 15px 0 0;
+}
+
+.brand-name {
+    position: absolute;
+    bottom: 60px;
+    left: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    margin: 0;
+}
+
+.brand-origin {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    font-size: 1rem;
+    text-align: center;
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    margin: 0;
+}
+
+@keyframes infiniteSlider {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause animation on hover */
+.slider-container:hover .slider-box{
+    animation-play-state: paused;
 }

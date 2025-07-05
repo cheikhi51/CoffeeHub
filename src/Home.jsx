@@ -1,4 +1,4 @@
-import {  useState, useEffect } from 'react';
+import {  useState, useEffect, useRef } from 'react';
 import sideImage from "./Black_and_Yellow_Gradient_Modern_Coffee_Presentation-removebg-preview.png";
 import About from './About.jsx';
 import successIcon from "./roundedSuccess.svg";
@@ -16,7 +16,7 @@ function Home({ cartCount,setCartCount }) {
   const [showOrder,setShowOrder] = useState(false);
   const [coffeeOrder, setCoffeeOrder] = useState({fullname:"",phone:"",email:"",coffeeType:"",specialRequests:""});
   const [successMessage, setSuccessMessage] = useState(false);
-  
+  const heroTitleRef =  useRef(null);
 
   const [prices, setPrices] = useState({});
 
@@ -153,12 +153,22 @@ const handleOnMouseLeaveCart = () => {
     },3000)
   },[successMessage]);
 
+  useEffect(()=>{
+    if (heroTitleRef.current){
+        const HeroTitlewidth = heroTitleRef.current.offsetWidth;
+        console.log("The width of the hero title is: ", HeroTitlewidth);
+    }
+  },[]);
+
+  
+
+
   return (
     <div className="home" id='home'>
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
-          <h1 className="hero-title fade-up-element">Welcome to CoffeeHub</h1>
+          <h1 className="hero-title fade-up-element" ref={heroTitleRef}>Welcome to CoffeeHub</h1>
           <p className="hero-subtitle fade-up-element">
             Discover the perfect cup of coffee, delivered fresh to your door
           </p>

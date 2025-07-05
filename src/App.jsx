@@ -3,6 +3,7 @@ import Home from "./Home.jsx";
 import "./App.css";
 import NavBar from "./NavBar.jsx";
 import Contact from "./Contact.jsx";
+import Slider from "./Slider.jsx";
 import Footer from "./Footer.jsx";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
     <>
         <NavBar cartCount={cartCount}/>
         <Home cartCount={cartCount} setCartCount={setCartCount}/>
+        <Slider />
         <Contact />
         <Footer />
     </>
