@@ -3,11 +3,6 @@ import aboutImage1 from "./about1_prev_ui.png";
 import aboutImage2 from "./about2_prev_ui.png";
 import aboutImage3 from "./about3_prev_ui.png";
 import CountUp from 'react-countup';
-import image1 from "./coffee-svgrepo-com.svg";
-import image2 from "./users-svgrepo-com.svg";
-import image3 from "./truck-svgrepo-com.svg";
-import image4 from "./stars-svgrepo-com.svg";
-import sideLine from './line-xl-svgrepo-com.svg'
 function About() {
 
   const [start,setStart] = useState(false);
@@ -31,15 +26,25 @@ function About() {
    };
 
   }, []);
-  const handleStartCouptUp = ()=>{
-    const CouptUpObserver = new IntersectionObserver((entities)=>{
-      entities.forEach(entry=>{
-        if(entry.isIntersecting){
-          setStart(true);
-        }
-      })
-    })
-  }
+  useEffect(() => {
+  const countAnimations = document.querySelectorAll('.start-count');
+  const CouptUpObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setStart(true);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  countAnimations.forEach(element => {
+    CouptUpObserver.observe(element);
+  });
+
+  return () => {
+    countAnimations.forEach(element => CouptUpObserver.unobserve(element));
+  };
+}, []);
+
   return (
     <div className="about-section" id="about">
       {/* About Hero Section */}
@@ -86,26 +91,19 @@ function About() {
           <h2 className="section-title fade-up-element">Our Impact</h2>
           <div className="stats-grid">
             <div className="stat-card pop-up-element">
-              <div className="stat-icon"><img src={image1} style={{width:'50px',height:"50px"}} alt='coffee image'/></div>
-              <div className="stat-number" onView={handleStartCouptUp}><CountUp start={0} end={50} duration={10} separator="," startWhen={start}/>K+</div>
+              <div className="stat-number start-count"><CountUp  start={start ? 0 : null} end={50} duration={6} separator="," startWhen={start}/>K+</div>
               <div className="stat-label">Cups Served</div>
             </div>
-            <span className='side-line'><img src={sideLine} style={{width:"50px"}} /></span>
             <div className="stat-card pop-up-element">
-              <div className="stat-icon"><img src={image2} style={{width:'50px',height:"50px"}} alt='users image'/></div>
-              <div className="stat-number" onView={handleStartCouptUp}><CountUp start={0} end={5} duration={10} separator="," startWhen={start}/>K+</div>
+              <div className="stat-number start-count"><CountUp  start={start ? 0 : null} end={5} duration={6} separator="," startWhen={start}/>K+</div>
               <div className="stat-label">Happy Customers</div>
             </div>
-            <span className='side-line'><img src={sideLine} style={{width:"50px"}}/></span>
             <div className="stat-card pop-up-element">
-              <div className="stat-icon"><img src={image3}style={{width:'50px',height:"50px"}} alt='truck image'/></div>
-              <div className="stat-number" onView={handleStartCouptUp}><CountUp start={0} end={25} duration={10} separator="," startWhen={start}/>K+</div>
+              <div className="stat-number start-count"><CountUp  start={start ? 0 : null} end={25} duration={6} separator="," startWhen={start}/>K+</div>
               <div className="stat-label">Orders Delivered</div> 
             </div>
-            <span className='side-line'><img src={sideLine} style={{width:"50px"}} /></span>
             <div className="stat-card pop-up-element">
-              <div className="stat-icon"><img src={image4} style={{width:'50px',height:"50px"}} alt='rating image'/></div>
-              <div className="stat-number" onView={handleStartCouptUp}><CountUp start={0} end={4.9} duration={10} separator="," startWhen={start}/></div>
+              <div className="stat-number start-count"><CountUp  start={start ? 0 : null} end={5} duration={6} separator="," startWhen={start}/></div>
               <div className="stat-label">Average Rating</div>
             </div>
           </div>

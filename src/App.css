@@ -115,7 +115,7 @@ body {
 /* ===== NAVBAR STYLES ===== */
 .navbar{
   width: 100%;
-  background-color: var(--navbar-bg, transparent);
+  background: var(linear-gradient(326deg, rgba(0, 0, 0, 1) 0%, rgba(102, 73, 57, 1) 43%, rgba(128, 71, 36, 1) 61%, rgba(89, 36, 18, 1) 80%, rgba(0, 0, 0, 1) 100%), transparent);
   transition: all 0.3s ease;
 }
 .nav-container {
@@ -266,7 +266,8 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #2C1810, #8B4513, #D2691E);
+  background: #000000;
+  background: linear-gradient(326deg, rgba(0, 0, 0, 1) 0%, rgba(102, 73, 57, 1) 43%, rgba(128, 71, 36, 1) 61%, rgba(89, 36, 18, 1) 80%, rgba(0, 0, 0, 1) 100%); 
   color: white;
   display: flex;
   justify-content: space-between;
@@ -286,7 +287,7 @@ body {
 .hero-title {
   font-size: 3.5rem;
   font-weight: bold;
-  background: linear-gradient(to right, rgb(246, 248, 130) 0%, rgb(174, 116, 21) 100%);
+  background: linear-gradient(to right,rgba(183, 157, 111, 0.853) 0%, rgba(189, 177, 119, 0.897)  50%,rgba(231, 218, 153, 0.914) 100%);
   background-size: 0% 100%;
   background-repeat: no-repeat;
   -webkit-background-clip: text;
@@ -670,7 +671,8 @@ body {
     left: -100%;
     width: 100%;
     height: calc(100vh - 70px);
-    background: linear-gradient(135deg, #2C1810, #8B4513);
+    background: #000000;
+    background: linear-gradient(326deg, rgba(0, 0, 0, 1) 0%, rgba(102, 73, 57, 1) 43%, rgba(128, 71, 36, 1) 61%, rgba(89, 36, 18, 1) 80%, rgba(0, 0, 0, 1) 100%);
     flex-direction: column;
     justify-content: flex-start;
     padding-top: 50px;
@@ -805,6 +807,14 @@ body {
     font-size: 14px; /* Slightly smaller text on very small screens */
   }
 
+  .stats-grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:30px;
+  }
+
   
 }
 .hero-subtitle-about{
@@ -834,6 +844,7 @@ body {
   text-align: center;
   gap: 7px;
   flex-wrap: wrap;
+  margin: 30px 0;
 }
 
 .stat-icon{
@@ -856,15 +867,15 @@ body {
 }
 .stat-card {
   position: relative;
-  width: 300px;
-  height: 200px;
   cursor: pointer;
   margin-bottom: 30px;
   transition: all 0.4s ease;
-  overflow: hidden; 
+  overflow: hidden;
+  font-size: x-large;
 }
 .side-line{
-  height: 14vh;
+  height: 25vh;
+  font-size: x-large;
 }
 
 .about-images{
@@ -1012,14 +1023,18 @@ body {
 .footer-section{
   margin-top: 50px;
   padding: 40px;
- background: linear-gradient(135deg, #6a3217,#9e512a, #CD853F);
- text-align: center;
- color: whitesmoke;
- font-weight: bold;
- font-size: large;
- display: flex;
- justify-content: space-evenly;
+  background:#000000;
+  background: linear-gradient(326deg,rgba(0, 0, 0, 1) 0%, rgba(102, 73, 57, 1) 43%, rgba(128, 71, 36, 1) 61%, rgba(89, 36, 18, 1) 80%, rgba(0, 0, 0, 1) 100%);
+  text-align: center;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: large;
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 .quick-links{
   display: flex;
@@ -1058,6 +1073,22 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.media-icons{
+  font-size: x-large;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.font-icon{
+  transition: all 0.4s ease;
+}
+.font-icon:hover{
+  cursor: pointer;
+  color: #ffc49b;
+}
 .loading-page-icon {
   position: fixed;
   top: 0;
@@ -1089,7 +1120,7 @@ body {
   bottom: 10px;
   right: 10px;
   z-index: 1000;
-  background-color: #90541f;
+  background: linear-gradient(180deg,rgb(103, 56, 15) 0%, rgba(140, 96, 62, 1) 50%, rgba(224, 160, 49, 1) 100%);
   color: #52230c;
   border-radius: 50px;
   width: 45px;
@@ -1100,7 +1131,7 @@ body {
 .up-button:hover{
   filter: drop-shadow(0 0 0.10rem #e89261);
   transform: translateY(-3px);
-  background: linear-gradient(180deg,rgb(103, 56, 15) 0%, rgba(140, 96, 62, 1) 50%, rgba(224, 160, 49, 1) 100%);
+  cursor: pointer;
 }
 @keyframes slide-in {
   0%{

@@ -322,7 +322,7 @@ const handleOnMouseLeaveCart = () => {
           <div className="cta-content fade-up-element">
             <h2>Ready for the Perfect Cup?</h2>
             <p>Join thousands of coffee lovers who trust CoffeeHub for their daily brew</p>
-            <button className="btn btn-primary btn-large">Start Your Order</button>
+            <button className="btn btn-primary btn-large" onClick={handleCoffeeOrderShow}>Start Your Order</button>
           </div>
         </div>
       </section>
@@ -344,7 +344,7 @@ const handleOnMouseLeaveCart = () => {
         <form className='order-form' onSubmit={handleCoffeeOrderSubmit}>
           <h2 className='order-title'> Order Now </h2>
           <input className='order-input' name="fullname" type="text"  placeholder='Full name' value={coffeeOrder.fullname} onChange={handleCoffeeChange} required/>
-          <input className='order-input' name="phone" type='number' placeholder='phone number' value={coffeeOrder.phone} onChange={handleCoffeeChange} required/>
+          <input className='order-input' name="phone" type='number' placeholder='phone number' min={0} value={coffeeOrder.phone} onChange={handleCoffeeChange} required/>
           <input className='order-input' name='email' type='email' placeholder='Email' value={coffeeOrder.email} onChange={handleCoffeeChange} required/>
           <select className="order-input" name='coffeeType' value={coffeeOrder.coffeeType} onChange={handleCoffeeChange} required>
                     <option value="">Select your coffee</option>

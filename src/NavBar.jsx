@@ -25,19 +25,19 @@ function NavBar({cartCount}) {
     <nav 
   className="navbar fixed top-0 left-0 right-0 z-50"
   style={{
-    '--navbar-bg': scrolled ? 'rgba(146, 64, 14, 0.95)' : 'transparent',
+    background: scrolled ? 'linear-gradient(326deg,rgba(0, 0, 0, 1) 0%, rgba(102, 73, 57, 1) 43%, rgba(128, 71, 36, 1) 61%, rgba(89, 36, 18, 1) 80%, rgba(0, 0, 0, 1) 100%)' : 'transparent',
     backdropFilter: scrolled ? 'blur(12px)' : 'none',
     boxShadow: scrolled ? '0 10px 15px -3px rgba(231, 224, 215, 0.1)' : 'none'
   }}
 >
    <div className="nav-container">
         {/* Logo */}
-        <div className="nav-logo">
+        <div className="nav-logo fade-up-element">
           <img className='logo-img' src={WebsiteLogo} alt='Website Logo'/>
         </div>
 
         {/* Desktop Navigation Links */}
-        <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+        <ul className={`nav-menu fade-up-element ${isMenuOpen ? 'active' : ''}`}>
           <li className="nav-item">
             <a href="#home" className="nav-link">Home</a>
           </li>
