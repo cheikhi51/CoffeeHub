@@ -160,9 +160,6 @@ const handleOnMouseLeaveCart = () => {
     }
   },[]);
 
-  
-
-
   return (
     <div className="home" id='home'>
       {/* Hero Section */}

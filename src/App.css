@@ -266,15 +266,34 @@ body {
 
 /* Hero Section */
 .hero {
-  background: #000000;
-  background: linear-gradient(326deg, rgba(0, 0, 0, 1) 0%, rgba(102, 73, 57, 1) 43%, rgba(128, 71, 36, 1) 61%, rgba(89, 36, 18, 1) 80%, rgba(0, 0, 0, 1) 100%); 
+  background: radial-gradient(circle, rgb(198, 197, 195) 0%,rgb(126, 109, 97) 5%,rgb(104, 86, 72) 50%, rgb(41, 36, 32) 100%);
+  background-size: 150% 150%;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 600px;
   height: 100vh;
+  animation: gradientAnimation 15s ease-in-out infinite alternate;
 }
+
+@keyframes gradientAnimation {
+  0%   { background-position: 0% 0%; }
+  15%  { background-position: 80% 30%; }
+  30%  { background-position: 20% 90%; }
+  45%  { background-position: 100% 40%; }
+  60%  { background-position: 10% 60%; }
+  75%  { background-position: 70% 0%; }
+  90%  { background-position: 40% 80%; }
+  100% { background-position: 0% 0%; }
+}
+
+@keyframes fadeAnimation {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
 
 .hero-content {
   margin: 0 40px;
