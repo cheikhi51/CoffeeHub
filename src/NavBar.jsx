@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import WebsiteLogo from "./Coffee Logo.png"
+import WebsiteLogo from "/Coffee Logo.png"
 
 function NavBar({cartCount}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

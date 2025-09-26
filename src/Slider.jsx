@@ -3,31 +3,31 @@ function Slider(){
   {
     "id": 1,
     "name": "Lavazza",
-    "image": "src/lavazza-logo-png.png",
+    "image": "/lavazza-logo-png.png",
     "origin": "Italy"
   },
   {
     "id": 2,
     "name": "Illy",
-    "image": "src/illy-logo.png",
+    "image": "/illy-logo.png",
     "origin": "Italy"
   },
   {
     "id": 3,
     "name": "Blue Bottle",
-    "image": "src/blue-bottle.png",
+    "image": "/blue-bottle.png",
     "origin": "United States"
   },
   {
     "id": 4,
     "name": "Tim Hortons",
-    "image": "src/tim-hortons-logo.png",
+    "image": "/tim-hortons-logo.png",
     "origin": "Canada"
   },
   {
     "id": 5,
     "name": "Peet's Coffee",
-    "image": "src/peets-coffee-logo.png",
+    "image": "/peets-coffee-logo.png",
     "origin": "United States"
   }
 ];

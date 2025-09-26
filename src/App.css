@@ -630,7 +630,7 @@ body {
 /* Call to Action Section */
 .cta {
   padding: 80px 0;
-  background-image: url("src/cta.png");
+  background-image: url("/cta.png");
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;

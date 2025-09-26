@@ -1,8 +1,8 @@
 import {  useState, useEffect, useRef } from 'react';
-import sideImage from "./Black_and_Yellow_Gradient_Modern_Coffee_Presentation-removebg-preview.png";
+import sideImage from "/Black_and_Yellow_Gradient_Modern_Coffee_Presentation-removebg-preview.png";
 import About from './About.jsx';
-import successIcon from "./roundedSuccess.svg";
-import OrderImage from "./Coffee Logo.png";
+import successIcon from "/roundedSuccess.svg";
+import OrderImage from "/Coffee Logo.png";
 
 function Home({ cartCount,setCartCount }) {
   const [data, setData] = useState([]);

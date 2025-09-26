@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import successIcon from "./roundedSuccess.svg";
-import errorIcon from "./roundedError.svg";
+import successIcon from "/roundedSuccess.svg";
+import errorIcon from "/roundedError.svg";
 function Contact(){
     const [formData, setFormData] = useState({
         name: "",

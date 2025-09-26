@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import aboutImage1 from "./about1_prev_ui.png";
-import aboutImage2 from "./about2_prev_ui.png";
-import aboutImage3 from "./about3_prev_ui.png";
+import aboutImage1 from "/about1_prev_ui.png";
+import aboutImage2 from "/about2_prev_ui.png";
+import aboutImage3 from "/about3_prev_ui.png";
 import CountUp from 'react-countup';
 function About() {
 
